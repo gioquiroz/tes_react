@@ -22,12 +22,6 @@ function App() {
                                 className="text-gray-600 hover:text-indigo-600 px-3 py-2 rounded-md text-sm font-medium transition duration-150">Inicio</a>
                             <a href="./tienda.html"
                                 className="text-gray-600 hover:text-indigo-600 px-3 py-2 rounded-md text-sm font-medium transition duration-150">Tienda</a>
-                            <a href="./impresoras.html"
-                                className="text-gray-600 hover:text-indigo-600 px-3 py-2 rounded-md text-sm font-medium transition duration-150">Impresoras</a>
-                            <a href="#"
-                                className="text-gray-600 hover:text-indigo-600 px-3 py-2 rounded-md text-sm font-medium transition duration-150">Fotocopiadoras</a>
-                            <a href="#"
-                                className="text-gray-600 hover:text-indigo-600 px-3 py-2 rounded-md text-sm font-medium transition duration-150">Escanéres</a>
                         </div>
 
                         <div className="flex items-center space-x-4">
