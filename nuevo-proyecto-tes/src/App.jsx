@@ -10,6 +10,7 @@ import {
 import Home from "./pages/home.jsx";
 import About from "./pages/about";
 import ShopPage from './pages/ShopPage.jsx'
+import CartItem from './pages/CartPage.jsx'
 
 
 function App() {
@@ -23,6 +24,7 @@ function App() {
                   <Route path="/" element={<Home />} /> 
                   <Route path="/about" element={<About />} />
                   <Route path="/tienda" element={<ShopPage />} />
+                  <Route path="/carrito" element={<CartItem />} />
               </Routes>
             </main>
   

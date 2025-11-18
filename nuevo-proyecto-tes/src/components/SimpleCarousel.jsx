@@ -1,20 +1,14 @@
 import React from 'react';
 import Slider from 'react-slick';
 
-// Importa tus imágenes aquí. Usaremos 10 imágenes de ejemplo.
-// Asegúrate de reemplazar estas rutas con las rutas reales de tus imágenes.
-import SlideImg1 from '../assets/image.png';
-import SlideImg2 from '../assets/image.png';
-import SlideImg3 from '../assets/image.png';
-import SlideImg4 from '../assets/image.png';
-import SlideImg5 from '../assets/image.png';
-import SlideImg6 from '../assets/image.png';
-import SlideImg7 from '../assets/image.png';
-import SlideImg8 from '../assets/image.png';
-import SlideImg9 from '../assets/image.png';
-import SlideImg10 from '../assets/image.png';
-
-
+import SlideImg1 from '../assets/DSC_0003.jpg';
+import SlideImg2 from '../assets/DSC_0013.jpg';
+import SlideImg3 from '../assets/DSC_0020.jpg';
+import SlideImg4 from '../assets/DSC_0031.jpg';
+import SlideImg5 from '../assets/DSC_0037.jpg';
+import SlideImg6 from '../assets/DSC_0058.jpg';
+import SlideImg7 from '../assets/DSC_0063.jpg';
+import SlideImg8 from '../assets/DSC_0070.jpg';
 
 const carouselImages = [
     { id: 1, src: SlideImg1, alt: 'Imagen de Producto 1' },
@@ -25,8 +19,6 @@ const carouselImages = [
     { id: 6, src: SlideImg6, alt: 'Imagen de Producto 6' },
     { id: 7, src: SlideImg7, alt: 'Imagen de Producto 7' },
     { id: 8, src: SlideImg8, alt: 'Imagen de Producto 8' },
-    { id: 9, src: SlideImg9, alt: 'Imagen de Producto 9' },
-    { id: 10, src: SlideImg10, alt: 'Imagen de Producto 10' },
 ];
 
 
@@ -79,7 +71,7 @@ function SimpleCarousel() {
         <div className="w-screen relative left-1/2 -translate-x-1/2 overflow-hidden mb-12">
             <Slider {...settings}>
                 {carouselImages.map((item, index) => (
-                    <div key={item.id} className="px-2"> {/* Padding horizontal entre slides */}
+                    <div key={item.id} className="px-4"> {/* Padding horizontal entre slides */}
                         <div 
                             className="h-64 md:h-80 lg:h-96 w-full bg-gray-200 rounded-lg shadow-md flex items-center justify-center overflow-hidden"
                         >

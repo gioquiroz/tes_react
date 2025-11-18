@@ -1,13 +1,14 @@
 import React, { useState, useEffect, useCallback } from "react";
 import { ChevronLeft, ChevronRight } from 'lucide-react'; 
-import moto from '../assets/image.png';
+import paseo from '../assets/paseo.jpg'
+import cumple261 from '../assets/26-1.jpg'
+import jefes from '../assets/jefes.jpg'
 
 
 const carouselSlides = [
-    { url: moto},
-    { url: moto},
-    { url: moto},
-    { url: moto},
+    { url: paseo},
+    { url: cumple261},
+    { url: jefes},
 ];
 
 
@@ -85,10 +86,6 @@ function CenteredCarousel({
                             backgroundColor: slides[getPreviousIndex(currentIndex)].url ? 'transparent' : '#eee',
                         }}
                     >
-                        {/* Texto inferior para diapositivas laterales */}
-                        <div className="absolute inset-x-0 bottom-0 bg-black/50 p-1 transition duration-300 group-hover:bg-black/70 flex items-end justify-center">
-                            <span className="text-white text-xs sm:text-sm font-bold">{visibleSlides[0].caption}</span>
-                        </div>
                     </div>
                 </div>
 
@@ -98,7 +95,7 @@ function CenteredCarousel({
                     onClick={(e) => e.stopPropagation()} 
                 >
                     <div 
-                        className="h-full w-full rounded-xl bg-cover bg-center flex flex-col items-center justify-center p-4 shadow-xl border-4"
+                        className="h-full w-full rounded-xl bg-cover bg-center flex flex-col items-center justify-center p-4 shadow-xl"
                         // Uso de URL vacía o background temporal si no hay URL
                         style={{ 
                             backgroundImage: slides[currentIndex].url ? `url(${slides[currentIndex].url})` : 'none',
@@ -121,10 +118,6 @@ function CenteredCarousel({
                             backgroundColor: slides[getNextIndex(currentIndex)].url ? 'transparent' : '#eee',
                         }}
                     >
-                        {/* Texto inferior para diapositivas laterales */}
-                        <div className="absolute inset-x-0 bottom-0 bg-black/50 p-1 transition duration-300 group-hover:bg-black/70 flex items-end justify-center">
-                            <span className="text-white text-xs sm:text-sm font-bold">{visibleSlides[2].caption}</span>
-                        </div>
                     </div>
                 </div>
 

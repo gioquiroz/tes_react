@@ -1,10 +1,8 @@
 import React from 'react';
 import SimpleCarousel from '../components/SimpleCarousel.jsx'; 
-
-import TeamPhotoMain from '../assets/cumple.png'; 
-import MissionPhoto from '../assets/cumple.png'; 
-import VisionPhoto from '../assets/cumple.png'; 
-import Banner from '../assets/cumple.png'
+import paseo from '../assets/paseo.jpg'
+import cumple261 from '../assets/26-1.jpg'
+import jefes from '../assets/jefes.jpg'
 
 
 function About() {
@@ -40,9 +38,9 @@ function About() {
                 {/* Imagen del Equipo Principal */}
                 <div className="order-1 md:order-2">
                     <img 
-                        src={TeamPhotoMain} 
+                        src={cumple261} 
                         alt="Equipo de TES LTDA celebrando aniversario" 
-                        className="rounded-lg shadow-xl w-full h-auto object-cover"
+                        className="rounded-lg shadow-xl w-full h-100 object-cover"
                     />
                 </div>
             </section>
@@ -57,9 +55,9 @@ function About() {
                         Ofrecer y comercializar equipos de alta tecnología, consumibles para impresoras y software, además de brindar asesoría, soporte técnico, servicio de renta y venta de tóner, sellos, realizando acuerdos con las principales marcas a nivel mundial. Nos esforzamos por superar las expectativas de nuestros clientes y asegurar el desarrollo profesional y personal de nuestros colaboradores y la satisfacción de nuestros empleados.
                     </p>
                     <img 
-                        src={MissionPhoto} 
+                        src={jefes} 
                         alt="Foto Misión" 
-                        className="rounded-lg shadow-md mt-6 w-full h-auto object-cover"
+                        className="rounded-lg shadow-md mt-6 w-full h-100 object-cover"
                     />
                 </div>
 
@@ -70,20 +68,24 @@ function About() {
                         Tecnología moderna y suministros (LMS - test), en el 2020 el desarrollo de apps web y móviles. Innovación constante para la prevención de tecnicismos de trabajo, desempeñó del empleado, capacidad de adaptabilidad de las tecnologías, gestión ambiental, seguridad laboral, honestidad y la línea de tecnologías en el futuro.
                     </p>
                     <img 
-                        src={VisionPhoto} 
+                        src={jefes} 
                         alt="Foto Visión" 
-                        className="rounded-lg shadow-md mt-6 w-full h-auto object-cover"
+                        className="rounded-lg shadow-md mt-6 w-full h-100 object-cover"
                     />
                 </div>
                 
             </section>
 
-            <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 mt-20">
+            <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 mt-20 text-center">  
+                <h2 className="text-4xl font-extrabold text-gray-800 mb-16">Último Evento</h2>
+
                 <div className="h-full bg-gray-300 rounded-lg flex items-center justify-center overflow-hidden">
+                <h2 className="text-3xl font-extrabold text-gray-800 mb-16">Viaje a Cartagena</h2>
+
                     <img 
-                        src={Banner} // Usamos la variable Banner aquí
+                        src={paseo}
                         alt="Banner de promoción o información adicional" 
-                        className="w-full h-full object-cover rounded-lg" 
+                        className="w-full h-150 object-cover rounded-lg" 
                     />
                 </div>
             </div>

@@ -23,6 +23,9 @@ function App() {
                             <NavLink to="/" activeStyle>
                                 Inicio
                             </NavLink>
+                            <NavLink to="/tienda" activeStyle>
+                                tienda
+                            </NavLink>
                             
                         </div>
 
@@ -32,7 +35,7 @@ function App() {
                                 <User className="w-5 h-5" />
                             </a>
 
-                            <NavLink to="/tienda" activeStyle>
+                            <NavLink to="/carrito" activeStyle>
                                 <ShoppingCart className="w-5 h-5" />
                             </NavLink>
                             
