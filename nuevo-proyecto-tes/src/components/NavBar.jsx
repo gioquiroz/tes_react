@@ -23,9 +23,7 @@ function App() {
                             <NavLink to="/" activeStyle>
                                 Inicio
                             </NavLink>
-                            <NavLink to="/tienda" activeStyle>
-                                Tienda
-                            </NavLink>
+                            
                         </div>
 
                         <div className="flex items-center space-x-4">
@@ -34,10 +32,10 @@ function App() {
                                 <User className="w-5 h-5" />
                             </a>
 
-
-                            <a href="./carrito.html" className="text-gray-500 hover:text-indigo-600 transition duration-150">
+                            <NavLink to="/tienda" activeStyle>
                                 <ShoppingCart className="w-5 h-5" />
-                            </a>
+                            </NavLink>
+                            
 
                             {/* Menú de Categorías (Dropdown) - Desktop y Tablet */}
                             <div className="hidden md:block relative">
