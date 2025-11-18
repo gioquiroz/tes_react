@@ -20,19 +20,19 @@ const carouselImages = [
 
 function SimpleCarousel() {
   
-    // CONFIGURACIÓN PARA MOVIMIENTO INFINITO LENTO Y VISTA PARCIAL
+
   const settings = {
     dots: false, 
     infinite: true,
     
-    // CLAVES PARA MOVIMIENTO LENTO Y CONTINUO
-    speed: 8000,           // Velocidad lenta (8 segundos por transición)
-    autoplaySpeed: 1,      // Elimina la pausa (movimiento continuo)
-    cssEase: "linear",     // Movimiento constante y suave
+
+    speed: 8000,           
+    autoplaySpeed: 1,      
+    cssEase: "linear",     
     autoplay: true,
-        arrows: false,         // Desactivamos las flechas en modo continuo
+     arrows: false,         
     
-        // PROPIEDADES DE VISTA PARCIAL
+
     centerMode: true, 
     slidesToShow: 3, 
     slidesToScroll: 1,

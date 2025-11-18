@@ -23,6 +23,9 @@ function App() {
                             <NavLink to="/" activeStyle>
                                 Inicio
                             </NavLink>
+                            <NavLink to="/tienda" activeStyle>
+                                Tienda
+                            </NavLink>
                         </div>
 
                         <div className="flex items-center space-x-4">

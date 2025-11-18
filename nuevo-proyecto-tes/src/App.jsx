@@ -9,6 +9,7 @@ import {
 } from "react-router-dom";
 import Home from "./pages/home.jsx";
 import About from "./pages/about";
+import ShopPage from './pages/ShopPage.jsx'
 
 
 function App() {
@@ -21,6 +22,7 @@ function App() {
               <Routes>
                   <Route path="/" element={<Home />} /> 
                   <Route path="/about" element={<About />} />
+                  <Route path="/tienda" element={<ShopPage />} />
               </Routes>
             </main>
   
