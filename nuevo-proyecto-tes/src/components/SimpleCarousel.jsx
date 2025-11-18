@@ -1,0 +1,99 @@
+import React from 'react';
+import Slider from 'react-slick';
+
+// Importa tus imágenes aquí. Usaremos 10 imágenes de ejemplo.
+// Asegúrate de reemplazar estas rutas con las rutas reales de tus imágenes.
+import SlideImg1 from '../assets/image.png';
+import SlideImg2 from '../assets/image.png';
+import SlideImg3 from '../assets/image.png';
+import SlideImg4 from '../assets/image.png';
+import SlideImg5 from '../assets/image.png';
+import SlideImg6 from '../assets/image.png';
+import SlideImg7 from '../assets/image.png';
+import SlideImg8 from '../assets/image.png';
+import SlideImg9 from '../assets/image.png';
+import SlideImg10 from '../assets/image.png';
+
+
+
+const carouselImages = [
+    { id: 1, src: SlideImg1, alt: 'Imagen de Producto 1' },
+    { id: 2, src: SlideImg2, alt: 'Imagen de Producto 2' },
+    { id: 3, src: SlideImg3, alt: 'Imagen de Producto 3' },
+    { id: 4, src: SlideImg4, alt: 'Imagen de Producto 4' },
+    { id: 5, src: SlideImg5, alt: 'Imagen de Producto 5' },
+    { id: 6, src: SlideImg6, alt: 'Imagen de Producto 6' },
+    { id: 7, src: SlideImg7, alt: 'Imagen de Producto 7' },
+    { id: 8, src: SlideImg8, alt: 'Imagen de Producto 8' },
+    { id: 9, src: SlideImg9, alt: 'Imagen de Producto 9' },
+    { id: 10, src: SlideImg10, alt: 'Imagen de Producto 10' },
+];
+
+
+function SimpleCarousel() {
+    const settings = {
+        dots: false,
+        infinite: true, 
+        speed: 500,
+        slidesToScroll: 1, 
+        autoplay: true,
+        autoplaySpeed: 2000,
+
+        
+        centerMode: true, 
+
+        slidesToShow: 7, 
+
+        responsive: [
+            {
+                breakpoint: 1280, // Para pantallas grandes (lg)
+                settings: {
+                    slidesToShow: 3, // Muestra 3 slides completos
+                }
+            },
+            {
+                breakpoint: 1024, // Para pantallas medianas (md)
+                settings: {
+                    slidesToShow: 2.5, // Muestra 2 completos y 1 parcial
+                }
+            },
+            {
+                breakpoint: 768, // Para tablets (sm)
+                settings: {
+                    slidesToShow: 1.5, // Muestra 1 completo y 1 parcial
+                }
+            },
+            {
+                breakpoint: 480, // Para móviles (xs)
+                settings: {
+                    slidesToShow: 1, // Muestra solo 1 slide completo.
+                    centerPadding: "40px", // Muestra un poco de los lados en móviles.
+                }
+            }
+        ]
+    };
+
+    return (
+        // El ancho 'w-screen' y el centrado con 'relative left-1/2 -translate-x-1/2'
+        // son cruciales para que el carrusel ocupe todo el ancho de la ventana
+        <div className="w-screen relative left-1/2 -translate-x-1/2 overflow-hidden mb-12">
+            <Slider {...settings}>
+                {carouselImages.map((item, index) => (
+                    <div key={item.id} className="px-2"> {/* Padding horizontal entre slides */}
+                        <div 
+                            className="h-64 md:h-80 lg:h-96 w-full bg-gray-200 rounded-lg shadow-md flex items-center justify-center overflow-hidden"
+                        >
+                            <img 
+                                src={item.src} 
+                                alt={item.alt} 
+                                className="w-full h-full object-cover transition-all duration-300"
+                            />
+                        </div>
+                    </div>
+                ))}
+            </Slider>
+        </div>
+    );
+}
+
+export default SimpleCarousel;
