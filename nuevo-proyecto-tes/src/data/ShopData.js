@@ -1,9 +1,7 @@
-// --- Estructura de Filtros y Endpoints de la API ---
 
 const shopDataConfig = {
     "Impresoras": {
         title: "Impresoras",
-        // Usamos JSONPlaceholder como ejemplo de endpoint
         apiEndpoint: 'https://jsonplaceholder.typicode.com/posts', 
         filters: {
             "Tipo": ['Laser', 'Inyección', 'Térmica'],
@@ -13,7 +11,6 @@ const shopDataConfig = {
     },
     "Fotocopiadoras": {
         title: "Fotocopiadoras",
-        // Usamos el mismo endpoint de ejemplo, pero la data se adapta
         apiEndpoint: 'https://jsonplaceholder.typicode.com/posts',
         filters: {
             "Velocidad (PPM)": ['20-30', '46+'],

@@ -11,14 +11,14 @@ import SlideImg7 from '../assets/DSC_0063.jpg';
 import SlideImg8 from '../assets/DSC_0070.jpg';
 
 const carouselImages = [
-    { id: 1, src: SlideImg1, alt: 'Imagen de Producto 1' },
-    { id: 2, src: SlideImg2, alt: 'Imagen de Producto 2' },
-    { id: 3, src: SlideImg3, alt: 'Imagen de Producto 3' },
-    { id: 4, src: SlideImg4, alt: 'Imagen de Producto 4' },
-    { id: 5, src: SlideImg5, alt: 'Imagen de Producto 5' },
-    { id: 6, src: SlideImg6, alt: 'Imagen de Producto 6' },
-    { id: 7, src: SlideImg7, alt: 'Imagen de Producto 7' },
-    { id: 8, src: SlideImg8, alt: 'Imagen de Producto 8' },
+    { id: 1, src: SlideImg1, alt: 'Imagen 1' },
+    { id: 2, src: SlideImg2, alt: 'Imagen 2' },
+    { id: 3, src: SlideImg3, alt: 'Imagen 3' },
+    { id: 4, src: SlideImg4, alt: 'Imagen 4' },
+    { id: 5, src: SlideImg5, alt: 'Imagen 5' },
+    { id: 6, src: SlideImg6, alt: 'Imagen 6' },
+    { id: 7, src: SlideImg7, alt: 'Imagen 7' },
+    { id: 8, src: SlideImg8, alt: 'Imagen 8' },
 ];
 
 
@@ -29,7 +29,7 @@ function SimpleCarousel() {
         speed: 500,
         slidesToScroll: 1, 
         autoplay: true,
-        autoplaySpeed: 2000,
+        autoplaySpeed: 1500,
 
         
         centerMode: true, 
@@ -66,8 +66,6 @@ function SimpleCarousel() {
     };
 
     return (
-        // El ancho 'w-screen' y el centrado con 'relative left-1/2 -translate-x-1/2'
-        // son cruciales para que el carrusel ocupe todo el ancho de la ventana
         <div className="w-screen relative left-1/2 -translate-x-1/2 overflow-hidden mb-12">
             <Slider {...settings}>
                 {carouselImages.map((item, index) => (

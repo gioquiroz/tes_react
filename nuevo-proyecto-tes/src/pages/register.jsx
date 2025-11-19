@@ -2,10 +2,6 @@ import React, { useState, useEffect } from 'react';
 import { NavLink } from 'react-router-dom';
 
 const Register = () => {
-  // Diagnóstico: Mantenemos el log para confirmar que el componente se monta.
-  useEffect(() => {
-    console.log('✅ Componente Register montado correctamente.');
-  }, []);
   
   const [username, setUsername] = useState('');
   const [name, setName] = useState('');
@@ -18,18 +14,14 @@ const Register = () => {
   const handleSubmit = (e) => {
     e.preventDefault();
     if (password !== confirmPassword) {
-      console.error('Las contraseñas no coinciden.');
+      alert('Las contraseñas no coinciden.');
       return;
     }
-    console.log('Registro de Usuario:', { username, name, password, isVendor });
-    // Aquí iría la lógica de registro, como llamar a una API o a Firebase Auth
   };
 
   return (
-    // Contenedor principal centrado
     <div className="w-full h-full flex items-center justify-center py-16">
       
-      {/* Contenedor del Título y Formulario - Aumentamos la anchura a max-w-lg */}    
       <div className="w-full max-w-[45rem] p-4">
 
         {/* Título */}
@@ -37,13 +29,11 @@ const Register = () => {
           Registro de Usuario
         </h1>
 
-        {/* Contenedor principal del formulario (el recuadro blanco) */}
+        {/* Contenedor principal del formulario */}
         <div className="bg-white p-6 md:p-8 border border-gray-300 shadow-md rounded-lg">
           
           <form onSubmit={handleSubmit} className="space-y-6">
-            
-            {/* INICIO DE LA ESTRUCTURA 2x2 GRID */}
-            {/* En pantallas medianas (md) y superiores, usa 2 columnas. En móviles, 1 columna. */}
+
             <div className="grid grid-cols-1 md:grid-cols-2 gap-x-4 gap-y-6">
                 
                 {/* Campo 1: Usuario/Correo */}
@@ -152,7 +142,6 @@ const Register = () => {
                 </div>
                 
             </div>
-            {/* FIN DE LA ESTRUCTURA 2x2 GRID */}
 
             {/* Checkbox Vendedor / Proveedor */}
             <div className="flex items-center">
@@ -170,7 +159,7 @@ const Register = () => {
             </div>
 
 
-            {/* Botón de Registrarse (gris claro) */}
+            {/* Botón de Registrarse */}
             <div>
               <button
                 type="submit"
