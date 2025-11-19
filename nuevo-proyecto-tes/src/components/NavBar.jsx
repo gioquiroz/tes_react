@@ -31,15 +31,13 @@ function App() {
 
                         <div className="flex items-center space-x-4">
                             
-                            <a href="./inicio_sesion.html" className="text-gray-500 hover:text-indigo-600 transition duration-150">
+                            <NavLink to="/login" activeStyle>
                                 <User className="w-5 h-5" />
-                            </a>
-
+                            </NavLink>
                             <NavLink to="/carrito" activeStyle>
                                 <ShoppingCart className="w-5 h-5" />
                             </NavLink>
                             
-
                             {/* Menú de Categorías (Dropdown) - Desktop y Tablet */}
                             <div className="hidden md:block relative">
                                 <button 

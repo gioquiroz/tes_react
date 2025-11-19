@@ -1,5 +1,4 @@
 import React from "react";
-// Asegúrate de importar todos los iconos que uses
 import { Printer, ScrollText, Wrench, Headset, Briefcase } from 'lucide-react'; 
 import RH from '../assets/OIP.jpg';
 import Cumple from '../assets/cumple.png';
