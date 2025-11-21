@@ -1,5 +1,3 @@
-// --- src/pages/ShopPage.jsx (COMPLETO con Blur Condicional) ---
-
 import React, { useState, useEffect, useMemo } from 'react';
 import ProductCard from '../components/ProductCard.jsx'; 
 import ProductDetailsModal from '../components/ProductDetailsModal.jsx';
@@ -19,7 +17,6 @@ const initializeFilters = (data) => {
 
 // Función auxiliar: Adapta los datos genéricos de la API a la estructura de producto
 const mapToProductStructure = (data, category) => {
-    // Simula los campos de producto usando data de la API (JSONPlaceholder)
     const config = shopDataConfig[category];
     const brands = config.filters["Marcas"] || ['Genérica'];
     const prices = [500000, 1250000, 1800000, 2400000, 3100000];
@@ -75,11 +72,6 @@ function ShopPage() {
     const categoryConfig = shopDataConfig[activeCategory];
     const categoryFilterNames = Object.keys(categoryConfig.filters);
     
-    
-    // ------------------------------------
-    // useEffect: LLAMADA A LA API
-    // ------------------------------------
-
     useEffect(() => {
         const fetchProducts = async () => {
             const apiEndpoint = categoryConfig.apiEndpoint;
@@ -116,10 +108,6 @@ function ShopPage() {
         fetchProducts();
 
     }, [activeCategory]);
-    
-    // ------------------------------------
-    // MANEJADORES DE EVENTOS Y MODAL
-    // ------------------------------------
 
     const handleCategoryChange = (newCategory) => {
         setActiveCategory(newCategory);
@@ -216,7 +204,7 @@ function ShopPage() {
                         <div className="bg-white p-6 rounded-xl shadow-lg border border-gray-100 sticky top-24">
                             
                             {/* 1. Selección de Categoría */}
-                            <h2 className="text-xl font-bold text-gray-800 mb-4 border-b pb-2 text-indigo-600">
+                            <h2 className="text-xl font-bold text-gray-800 mb-4 border-b pb-2 hover:text-indigo-600">
                                 Secciones
                             </h2>
                             <div className="mb-6 flex flex-col space-y-2">
@@ -236,7 +224,7 @@ function ShopPage() {
                             </div>
                             
                             {/* 2. Filtros Dinámicos */}
-                            <h2 className="text-xl font-bold text-gray-800 mb-4 border-t pt-4 text-indigo-600">
+                            <h2 className="text-xl font-bold text-gray-800 mb-4 border-t pt-4 hover:text-indigo-600">
                                 Filtros
                             </h2>
                             
