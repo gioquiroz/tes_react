@@ -2,12 +2,21 @@ import React, { useState, useEffect } from "react";
 import { Menu, X, User, ShoppingCart, LogOut } from "lucide-react";
 import logoTES from "../assets/logo-tes150.png";
 import { NavLink } from "./NavbarElements";
+import { useLocation } from "react-router-dom";
 
 export default function Navbar() {
     const [isMenuOpen, setIsMenuOpen] = useState(false);
     const [isCategoryMenuOpen, setIsCategoryMenuOpen] = useState(false);
     const [userMenu, setUserMenu] = useState(false);
     const [user, setUser] = useState(null);
+
+    const location = useLocation(); 
+
+    useEffect(() => {
+        setIsMenuOpen(false);
+        setIsCategoryMenuOpen(false);
+        setUserMenu(false);
+    }, [location.pathname]);
 
     // Cargar usuario al iniciar
     useEffect(() => {
@@ -54,14 +63,14 @@ export default function Navbar() {
                     {/* Iconos */}
                     <div className="flex items-center space-x-4">
 
-                        {/* Nombre del usuario */}
+                        {/* Nombre */}
                         {user && (
                             <span className="text-gray-700 font-medium">
                                 {user.nombre}
                             </span>
                         )}
 
-                        {/* Ícono usuario */}
+                        {/* Menú usuario */}
                         <div className="relative">
                             <button
                                 onClick={() => setUserMenu(!userMenu)}
@@ -97,10 +106,12 @@ export default function Navbar() {
                             <ShoppingCart className="w-5 h-5" />
                         </NavLink>
 
-                        {/* Menú categorías Desktop */}
+                        {/* Categorías Desktop */}
                         <div className="hidden md:block relative">
                             <button
-                                onClick={() => setIsCategoryMenuOpen(!isCategoryMenuOpen)}
+                                onClick={() =>
+                                    setIsCategoryMenuOpen(!isCategoryMenuOpen)
+                                }
                                 className="p-2 text-gray-600 hover:text-indigo-600 transition"
                             >
                                 {isCategoryMenuOpen ? (
