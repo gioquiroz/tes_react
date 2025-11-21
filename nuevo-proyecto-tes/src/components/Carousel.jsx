@@ -45,42 +45,36 @@ function CenteredCarousel({
         }
     }, [autoPlayInterval, goToNext]);
 
-    // Calcular las tres diapositivas que estarán visibles
     const visibleSlides = [
-        slides[getPreviousIndex(currentIndex)], // Izquierda
-        slides[currentIndex],                   // Centro (Actual)
-        slides[getNextIndex(currentIndex)],     // Derecha
+        slides[getPreviousIndex(currentIndex)],
+        slides[currentIndex],                  
+        slides[getNextIndex(currentIndex)],     
     ];
 
-    // Función para determinar las clases CSS de cada diapositiva
     const getSlideBaseClasses = (isCenter) => {
-        // Base sin dimensiones para aplicar solo las props
         const baseClasses = "opacity-100 shadow-lg transition-all duration-700 ease-in-out cursor-pointer flex justify-center items-center";
         
         const widthClass = isCenter ? centerWidthClass : sideWidthClass;
         const depthClass = isCenter ? "z-20 shadow-2xl" : "z-10";
         
-        // ¡CAMBIO CLAVE! Altura individualizada
         const heightClass = isCenter ? centerHeightClass : sideHeightClass; 
 
         return `${baseClasses} ${widthClass} ${heightClass} ${depthClass}`;
     };
 
     return (
-        // Contenedor principal: Altura configurada por prop (containerHeightClasses).
         <div className={`mt-20 flex justify-center items-center w-full relative ${containerHeightClasses} overflow-hidden mb-8 mt-8`}>
             
             {/* Contenedor de las 3 Diapositivas Visibles - Con separación (gap-4) */}
             <div className="flex justify-center items-center w-full h-full gap-4 px-4">
                 
-                {/* Diapositiva Izquierda (Anterior) */}
+                {/* Diapositiva Izquierda*/}
                 <div 
                     onClick={goToPrevious}
                     className={getSlideBaseClasses(false)} 
                 >
                     <div 
                         className="h-full w-full rounded-lg bg-cover bg-center flex items-center justify-center relative group overflow-hidden"
-                        // Uso de URL vacía o background temporal si no hay URL
                         style={{ 
                             backgroundImage: slides[getPreviousIndex(currentIndex)].url ? `url(${slides[getPreviousIndex(currentIndex)].url})` : 'none',
                             backgroundColor: slides[getPreviousIndex(currentIndex)].url ? 'transparent' : '#eee',
@@ -89,14 +83,13 @@ function CenteredCarousel({
                     </div>
                 </div>
 
-                {/* Diapositiva Central (Actual) */}
+                {/* Diapositiva Central */}
                 <div 
                     className={getSlideBaseClasses(true)}
                     onClick={(e) => e.stopPropagation()} 
                 >
                     <div 
                         className="h-full w-full rounded-xl bg-cover bg-center flex flex-col items-center justify-center p-4 shadow-xl"
-                        // Uso de URL vacía o background temporal si no hay URL
                         style={{ 
                             backgroundImage: slides[currentIndex].url ? `url(${slides[currentIndex].url})` : 'none',
                             backgroundColor: slides[currentIndex].url ? 'transparent' : '#e0e0e0',
@@ -105,14 +98,13 @@ function CenteredCarousel({
                     </div>
                 </div>
 
-                {/* Diapositiva Derecha (Siguiente) */}
+                {/* Diapositiva Derecha */}
                 <div 
                     onClick={goToNext}
                     className={getSlideBaseClasses(false)}
                 >
                     <div 
                         className="h-full w-full rounded-lg bg-cover bg-center flex items-center justify-center relative group overflow-hidden"
-                        // Uso de URL vacía o background temporal si no hay URL
                         style={{ 
                             backgroundImage: slides[getNextIndex(currentIndex)].url ? `url(${slides[getNextIndex(currentIndex)].url})` : 'none',
                             backgroundColor: slides[getNextIndex(currentIndex)].url ? 'transparent' : '#eee',
@@ -126,7 +118,6 @@ function CenteredCarousel({
             {/* Controles de Navegación (Flechas) */}
             <button 
                 onClick={goToPrevious}
-                // Posicionamiento ajustado a 12%
                 className="absolute left-[12%] top-1/2 transform -translate-y-1/2 -translate-x-1/2 bg-white/30 hover:bg-white/50 text-white p-3 rounded-full shadow-lg z-30 transition backdrop-blur-sm"
                 aria-label="Anterior"
             >
@@ -134,7 +125,6 @@ function CenteredCarousel({
             </button>
             <button 
                 onClick={goToNext}
-                // Posicionamiento ajustado a 12%
                 className="absolute right-[12%] top-1/2 transform -translate-y-1/2 translate-x-1/2 bg-white/30 hover:bg-white/50 text-white p-3 rounded-full shadow-lg z-30 transition backdrop-blur-sm"
                 aria-label="Siguiente"
             >

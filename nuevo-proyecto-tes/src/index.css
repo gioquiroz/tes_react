@@ -1,0 +1,27 @@
+.carousel-track {
+  display: flex;
+  gap: 2rem;
+  width: max-content;
+  animation: scroll-linear 30s linear infinite;
+}
+
+.carousel-item {
+  width: 140px;
+  height: 140px;
+  border-radius: 50%;
+  background-size: contain;
+  background-repeat: no-repeat;
+  background-position: center;
+  background-color: white;
+  border: 2px solid #ccc;
+  box-shadow: 0 4px 8px rgba(0,0,0,0.15);
+}
+
+@keyframes scroll-linear {
+  from {
+    transform: translateX(0);
+  }
+  to {
+    transform: translateX(-50%);
+  }
+}

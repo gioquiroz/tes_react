@@ -55,7 +55,7 @@ app.post("/api/register", async (req, res) => {
     res.json({ ok: true, usuario: result.rows[0] });
 
   } catch (e) {
-    console.error("❌ Error REGISTER:", e);
+    console.error("Error REGISTER:", e);
     res.status(500).json({ ok: false, error: "Error al registrar usuario" });
   }
 });
@@ -99,7 +99,7 @@ app.post("/api/login", async (req, res) => {
     });
 
   } catch (e) {
-    console.error("❌ Error LOGIN:", e);
+    console.error("Error LOGIN:", e);
     res
       .status(500)
       .json({ ok: false, error: "Error en el inicio de sesión" });
@@ -108,5 +108,5 @@ app.post("/api/login", async (req, res) => {
 
 
 app.listen(4000, () =>
-  console.log("🚀 Servidor listo en http://localhost:4000")
+  console.log(" Servidor listo en http://localhost:4000")
 );

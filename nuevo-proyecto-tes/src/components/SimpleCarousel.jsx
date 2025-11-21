@@ -1,89 +1,117 @@
-import React from 'react';
-import Slider from 'react-slick';
+import React, { useState, useEffect } from "react";
 
-import SlideImg1 from '../assets/DSC_0003.jpg';
-import SlideImg2 from '../assets/DSC_0013.jpg';
-import SlideImg3 from '../assets/DSC_0020.jpg';
-import SlideImg4 from '../assets/DSC_0031.jpg';
-import SlideImg5 from '../assets/DSC_0037.jpg';
-import SlideImg6 from '../assets/DSC_0058.jpg';
-import SlideImg7 from '../assets/DSC_0063.jpg';
-import SlideImg8 from '../assets/DSC_0070.jpg';
+import SlideImg1 from "../assets/DSC_0003.webp";
+import SlideImg2 from "../assets/DSC_0013.jpg";
+import SlideImg3 from "../assets/DSC_0020.jpg";
+import SlideImg4 from "../assets/DSC_0031.jpg";
+import SlideImg5 from "../assets/DSC_0037.jpg";
+import SlideImg6 from "../assets/DSC_0058.jpg";
+import SlideImg7 from "../assets/DSC_0063.jpg";
+import SlideImg8 from "../assets/DSC_0070.jpg";
+import SlideImg9 from "../assets/DSC_0076.jpg";
 
-const carouselImages = [
-    { id: 1, src: SlideImg1, alt: 'Imagen 1' },
-    { id: 2, src: SlideImg2, alt: 'Imagen 2' },
-    { id: 3, src: SlideImg3, alt: 'Imagen 3' },
-    { id: 4, src: SlideImg4, alt: 'Imagen 4' },
-    { id: 5, src: SlideImg5, alt: 'Imagen 5' },
-    { id: 6, src: SlideImg6, alt: 'Imagen 6' },
-    { id: 7, src: SlideImg7, alt: 'Imagen 7' },
-    { id: 8, src: SlideImg8, alt: 'Imagen 8' },
+const images = [
+  { src: SlideImg1, name: "Julio" },
+  { src: SlideImg2, name: "Diana" },
+  { src: SlideImg3, name: "Paula" },
+  { src: SlideImg4, name: "Gonzaga" },
+  { src: SlideImg5, name: "Edward" },
+  { src: SlideImg6, name: "Sandra" },
+  { src: SlideImg7, name: "Luis" },
+  { src: SlideImg8, name: "Patricia" },
+  { src: SlideImg9, name: "Jesus" },
 ];
 
+export default function SimpleCarousel() {
+  const [currentIndex, setCurrentIndex] = useState(0);
 
-function SimpleCarousel() {
-    const settings = {
-        dots: false,
-        infinite: true, 
-        speed: 500,
-        slidesToScroll: 1, 
-        autoplay: true,
-        autoplaySpeed: 1500,
+  const next = () => {
+    setCurrentIndex((prev) => (prev + 1) % images.length);
+  };
 
-        
-        centerMode: true, 
+  const prev = () => {
+    setCurrentIndex((prev) => (prev - 1 + images.length) % images.length);
+  };
 
-        slidesToShow: 7, 
+  useEffect(() => {
+    const auto = setInterval(() => next(), 3000);
+    return () => clearInterval(auto);
+  }, []);
 
-        responsive: [
-            {
-                breakpoint: 1280, // Para pantallas grandes (lg)
-                settings: {
-                    slidesToShow: 3, // Muestra 3 slides completos
-                }
-            },
-            {
-                breakpoint: 1024, // Para pantallas medianas (md)
-                settings: {
-                    slidesToShow: 2.5, // Muestra 2 completos y 1 parcial
-                }
-            },
-            {
-                breakpoint: 768, // Para tablets (sm)
-                settings: {
-                    slidesToShow: 1.5, // Muestra 1 completo y 1 parcial
-                }
-            },
-            {
-                breakpoint: 480, // Para móviles (xs)
-                settings: {
-                    slidesToShow: 1, // Muestra solo 1 slide completo.
-                    centerPadding: "40px", // Muestra un poco de los lados en móviles.
-                }
-            }
-        ]
-    };
+  return (
+    <div className="max-w-5xl w-full mx-auto p-4 md:p-6">
+      <div className="relative flex items-center justify-center gap-6">
 
-    return (
-        <div className="w-screen relative left-1/2 -translate-x-1/2 overflow-hidden mb-12">
-            <Slider {...settings}>
-                {carouselImages.map((item, index) => (
-                    <div key={item.id} className="px-4"> {/* Padding horizontal entre slides */}
-                        <div 
-                            className="h-64 md:h-80 lg:h-96 w-full bg-gray-200 rounded-lg shadow-md flex items-center justify-center overflow-hidden"
-                        >
-                            <img 
-                                src={item.src} 
-                                alt={item.alt} 
-                                className="w-full h-full object-cover transition-all duration-300"
-                            />
-                        </div>
-                    </div>
-                ))}
-            </Slider>
-        </div>
-    );
+        {/* BOTÓN IZQUIERDO */}
+        <button
+          onClick={prev}
+          className="absolute left-[12%] top-1/2 transform -translate-y-1/2 bg-white/30 hover:bg-white/50 p-3 rounded-full shadow-lg backdrop-blur-sm z-30"
+        >
+          <svg xmlns="http://www.w3.org/2000/svg" className="h-7 w-7 text-gray-900" fill="none"
+            viewBox="0 0 24 24" stroke="currentColor">
+            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M15 19l-7-7 7-7"/>
+          </svg>
+        </button>
+
+        {/* CARRUSEL */}
+        {[-3, -2, -1, 0, 1, 2, 3].map((offset) => {
+          const imgIndex = (currentIndex + offset + images.length) % images.length;
+
+          const sizeClass =
+            Math.abs(offset) === 3
+              ? "w-[125px] h-[250px]"
+              : Math.abs(offset) === 2
+              ? "w-[150px] h-[300px]"
+              : Math.abs(offset) === 1
+              ? "w-[200px] h-[350px]"
+              : "w-[250px] h-[400px] shadow-2xl z-20";
+
+          return (
+            <div
+              key={offset}
+              className={`${sizeClass} rounded-xl overflow-hidden flex-shrink-0 transition-all duration-500 bg-gray-200 relative`}
+            >
+              {/* Imagen */}
+              <div
+                className="w-full h-full bg-cover bg-center"
+                style={{ backgroundImage: `url(${images[imgIndex].src})` }}
+              />
+
+              {/* Nombre visible para TODAS las imágenes */}
+              <div
+                className={`absolute bottom-0 w-full backdrop-blur-md bg-black/40 text-white text-center py-2 font-semibold transition-all duration-500
+                ${offset === 0 ? "text-lg" : "text-sm opacity-80"}`}
+              >
+                {images[imgIndex].name}
+              </div>
+            </div>
+          );
+        })}
+
+        {/* BOTÓN DERECHO */}
+        <button
+          onClick={next}
+          className="absolute right-[12%] top-1/2 transform -translate-y-1/2 bg-white/30 hover:bg-white/50 p-3 rounded-full shadow-lg backdrop-blur-sm z-30"
+        >
+          <svg xmlns="http://www.w3.org/2000/svg" className="h-7 w-7 text-gray-900" fill="none"
+            viewBox="0 0 24 24" stroke="currentColor">
+            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M9 5l7 7-7 7"/>
+          </svg>
+        </button>
+      </div>
+
+      {/* INDICADORES */}
+      <div className="flex justify-center mt-4 space-x-2">
+        {images.map((_, index) => (
+          <button
+            key={index}
+            onClick={() => setCurrentIndex(index)}
+            className={`w-3 h-3 rounded-full transition ${
+              currentIndex === index ? "bg-orange-500" : "bg-gray-300"
+            }`}
+          />
+        ))}
+      </div>
+    </div>
+  );
 }
-
-export default SimpleCarousel;

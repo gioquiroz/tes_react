@@ -3,6 +3,7 @@ import NavBar from "./components/NavBar.jsx";
 import Footer from "./components/Footer.jsx";
 import ScrollToTop from "./components/ScrollToTop.jsx";
 
+
 import {
     BrowserRouter as Router,
     Routes,
@@ -20,7 +21,7 @@ import { UserProvider } from "./components/UserContext.jsx";
 function App() {
     return (
         <UserProvider>
-            <div className="flex flex-col min-h-screen overflow-x-hidden">
+            <div className="flex flex-col min-h-screen">
                 <Router>
 
                     <NavBar />

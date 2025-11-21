@@ -1,5 +1,5 @@
 import React from 'react';
-import SimpleCarousel from '../components/SimpleCarousel.jsx'; 
+import SimpleCarousel from '../components/SimpleCarousel.jsx';
 import paseo from '../assets/paseo.jpg'
 import cumple261 from '../assets/26-1.jpg'
 import jefes from '../assets/jefes.jpg'
@@ -8,11 +8,11 @@ import jefes from '../assets/jefes.jpg'
 function About() {
     return (
         <div className="pt-24 pb-16 bg-white min-h-screen">
-            
+
             <header className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-                
-                <SimpleCarousel /> 
-                
+
+                <SimpleCarousel />
+
                 <h1 className="text-4xl font-extrabold text-gray-800 mb-16">
                     TES LTDA
                 </h1>
@@ -20,7 +20,7 @@ function About() {
 
             {/* 2. Sección: ¿Quiénes Somos? */}
             <section className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 mb-20 grid md:grid-cols-2 gap-12 items-center">
-                
+
                 {/* Texto: ¿Quiénes Somos? */}
                 <div className="order-2 md:order-1">
                     <h2 className="text-3xl font-bold text-gray-800 mb-6">¿Quiénes somos?</h2>
@@ -34,29 +34,28 @@ function About() {
                         Tenemos el mejor departamento de servicio técnico, medido por los estándares de calidad ISO.
                     </p>
                 </div>
-                
-                {/* Imagen del Equipo Principal */}
+
                 <div className="order-1 md:order-2">
-                    <img 
-                        src={cumple261} 
-                        alt="Equipo de TES LTDA celebrando aniversario" 
+                    <img
+                        src={cumple261}
+                        alt="Equipo de TES LTDA celebrando aniversario"
                         className="rounded-lg shadow-xl w-full h-100 object-cover"
                     />
                 </div>
             </section>
-            
+
             {/* 3. Sección: Misión y Visión (Usando Grid/Columnas) */}
             <section className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 grid md:grid-cols-2 gap-12 items-start">
-                
+
                 {/* Columna de Misión */}
                 <div className="bg-gray-50 p-6 rounded-lg shadow-md flex flex-col h-full">
                     <h2 className="text-3xl font-bold text-gray-800 mb-4">Misión</h2>
                     <p className="text-gray-600 leading-relaxed flex-grow">
                         Ofrecer y comercializar equipos de alta tecnología, consumibles para impresoras y software, además de brindar asesoría, soporte técnico, servicio de renta y venta de tóner, sellos, realizando acuerdos con las principales marcas a nivel mundial. Nos esforzamos por superar las expectativas de nuestros clientes y asegurar el desarrollo profesional y personal de nuestros colaboradores y la satisfacción de nuestros empleados.
                     </p>
-                    <img 
-                        src={jefes} 
-                        alt="Foto Misión" 
+                    <img
+                        src={jefes}
+                        alt="Foto Misión"
                         className="rounded-lg shadow-md mt-6 w-full h-100 object-cover"
                     />
                 </div>
@@ -67,28 +66,41 @@ function About() {
                     <p className="text-gray-600 leading-relaxed flex-grow">
                         Tecnología moderna y suministros (LMS - test), en el 2020 el desarrollo de apps web y móviles. Innovación constante para la prevención de tecnicismos de trabajo, desempeñó del empleado, capacidad de adaptabilidad de las tecnologías, gestión ambiental, seguridad laboral, honestidad y la línea de tecnologías en el futuro.
                     </p>
-                    <img 
-                        src={jefes} 
-                        alt="Foto Visión" 
+                    <img
+                        src={jefes}
+                        alt="Foto Visión"
                         className="rounded-lg shadow-md mt-6 w-full h-100 object-cover"
                     />
                 </div>
-                
+
             </section>
 
-            <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 mt-20 text-center">  
+            <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 mt-20 text-center">
                 <h2 className="text-4xl font-extrabold text-gray-800 mb-16">Último Evento</h2>
 
-                <div className="h-full bg-gray-300 rounded-lg flex items-center justify-center overflow-hidden">
-                <h2 className="text-3xl font-extrabold text-gray-800 mb-16">Viaje a Cartagena</h2>
+                <div className="relative h-100 rounded-2xl overflow-hidden shadow-xl">
 
-                    <img 
+                    {/* Imagen */}
+                    <img
                         src={paseo}
-                        alt="Banner de promoción o información adicional" 
-                        className="w-full h-150 object-cover rounded-lg" 
+                        alt="Banner de promoción o información adicional"
+                        className="w-full h-150 object-cover"
                     />
+
+                    {/* Caja de texto elegante */}
+                    <div className="absolute bottom-0 left-0 w-full h-10">
+                        <div className="backdrop-blur-md bg-black/40 text-white py-2 px-4">
+
+                            <h2 className="text-2xl font-bold tracking-wide drop-shadow-lg">
+                                Viaje a Cartagena
+                            </h2>
+
+                        </div>
+                    </div>
+
                 </div>
             </div>
+
 
         </div>
     );
