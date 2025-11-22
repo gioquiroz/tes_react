@@ -11,15 +11,15 @@ import SlideImg8 from "../assets/DSC_0070.jpg";
 import SlideImg9 from "../assets/DSC_0076.jpg";
 
 const images = [
-  { src: SlideImg1, name: "Julio" },
-  { src: SlideImg2, name: "Diana" },
-  { src: SlideImg3, name: "Paula" },
-  { src: SlideImg4, name: "Gonzaga" },
-  { src: SlideImg5, name: "Edward" },
-  { src: SlideImg6, name: "Sandra" },
-  { src: SlideImg7, name: "Luis" },
-  { src: SlideImg8, name: "Patricia" },
-  { src: SlideImg9, name: "Jesus" },
+  { src: SlideImg1, name: "Julio", cargo: "Mensajero" },
+  { src: SlideImg2, name: "Diana Gutierrez", cargo: "Coordinadora de Servicio" },
+  { src: SlideImg3, name: "Paula", cargo: "Comercial" },
+  { src: SlideImg4, name: "Luis Gonzaga", cargo: "Almacenista" },
+  { src: SlideImg5, name: "Edward Velasquez", cargo: "Supervisor Tecnico" },
+  { src: SlideImg6, name: "Sandra Franco", cargo: "Contadora" },
+  { src: SlideImg7, name: "Luis Sepulveda", cargo: "Gerente Tecnico" },
+  { src: SlideImg8, name: "Patricia", cargo: "Comercial" },
+  { src: SlideImg9, name: "Jesus Rendon", cargo: "Gerente General" },
 ];
 
 export default function SimpleCarousel() {
@@ -39,7 +39,7 @@ export default function SimpleCarousel() {
   }, []);
 
   return (
-    <div className="max-w-5xl w-full mx-auto p-4 md:p-6">
+    <div className="max-w-5xl w-full mx-auto p-4 md:p-6 mb-">
       <div className="relative flex items-center justify-center gap-6">
 
         {/* BOTÓN IZQUIERDO */}
@@ -59,12 +59,12 @@ export default function SimpleCarousel() {
 
           const sizeClass =
             Math.abs(offset) === 3
-              ? "w-[125px] h-[250px]"
+              ? "w-[125px] h-[300px]"
               : Math.abs(offset) === 2
-              ? "w-[150px] h-[300px]"
+              ? "w-[150px] h-[350px]"
               : Math.abs(offset) === 1
-              ? "w-[200px] h-[350px]"
-              : "w-[250px] h-[400px] shadow-2xl z-20";
+              ? "w-[200px] h-[400px]"
+              : "w-[250px] h-[450px] shadow-2xl z-20";
 
           return (
             <div
@@ -83,6 +83,10 @@ export default function SimpleCarousel() {
                 ${offset === 0 ? "text-lg" : "text-sm opacity-80"}`}
               >
                 {images[imgIndex].name}
+                <br />
+                <div className="text-xs font-normal">
+                  {images[imgIndex].cargo}
+                </div>  
               </div>
             </div>
           );
@@ -98,19 +102,6 @@ export default function SimpleCarousel() {
             <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M9 5l7 7-7 7"/>
           </svg>
         </button>
-      </div>
-
-      {/* INDICADORES */}
-      <div className="flex justify-center mt-4 space-x-2">
-        {images.map((_, index) => (
-          <button
-            key={index}
-            onClick={() => setCurrentIndex(index)}
-            className={`w-3 h-3 rounded-full transition ${
-              currentIndex === index ? "bg-orange-500" : "bg-gray-300"
-            }`}
-          />
-        ))}
       </div>
     </div>
   );

@@ -18,10 +18,9 @@ function About() {
                 </h1>
             </header>
 
-            {/* 2. Sección: ¿Quiénes Somos? */}
+            {/* Sección: ¿Quiénes Somos? */}
             <section className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 mb-20 grid md:grid-cols-2 gap-12 items-center">
 
-                {/* Texto: ¿Quiénes Somos? */}
                 <div className="order-2 md:order-1">
                     <h2 className="text-3xl font-bold text-gray-800 mb-6">¿Quiénes somos?</h2>
                     <p className="text-gray-600 leading-relaxed">
@@ -44,7 +43,7 @@ function About() {
                 </div>
             </section>
 
-            {/* 3. Sección: Misión y Visión (Usando Grid/Columnas) */}
+            {/* Sección: Misión y Visión */}
             <section className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 grid md:grid-cols-2 gap-12 items-start">
 
                 {/* Columna de Misión */}
@@ -87,12 +86,12 @@ function About() {
                         className="w-full h-150 object-cover"
                     />
 
-                    {/* Caja de texto elegante */}
+                    {/* Caja de texto */}
                     <div className="absolute bottom-0 left-0 w-full h-10">
                         <div className="backdrop-blur-md bg-black/40 text-white py-2 px-4">
 
                             <h2 className="text-2xl font-bold tracking-wide drop-shadow-lg">
-                                Viaje a Cartagena
+                                Convención Cartagena 2025
                             </h2>
 
                         </div>
@@ -100,8 +99,6 @@ function About() {
 
                 </div>
             </div>
-
-
         </div>
     );
 }
