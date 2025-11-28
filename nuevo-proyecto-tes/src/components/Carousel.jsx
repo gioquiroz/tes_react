@@ -18,38 +18,41 @@ function CenteredCarousel({
     containerHeightClasses = "h-[400px]", 
     centerWidthClass = "w-1/2", 
     sideWidthClass = "w-1/3",
-
     centerHeightClass = "h-[90%]",
     sideHeightClass = "h-[70%]"   
 }) {
     const [currentIndex, setCurrentIndex] = useState(0);
-
     const slidesLength = slides.length;
-    if (slidesLength === 0) return null;
 
-    // Lógica para obtener el índice de la diapositiva anterior y siguiente
-    const getPreviousIndex = (index) => (index - 1 + slidesLength) % slidesLength;
-    const getNextIndex = (index) => (index + 1) % slidesLength;
+    const getPreviousIndex = useCallback((index) => 
+        (index - 1 + slidesLength) % slidesLength, 
+        [slidesLength]
+    );
+    
+    const getNextIndex = useCallback((index) => 
+        (index + 1) % slidesLength, 
+        [slidesLength]
+    );
 
-    // Usamos useCallback para memorizar las funciones de navegación
-    const goToPrevious = useCallback(() => setCurrentIndex(getPreviousIndex(currentIndex)), [currentIndex, slidesLength]);
-    const goToNext = useCallback(() => setCurrentIndex(getNextIndex(currentIndex)), [currentIndex, slidesLength]);
+    const goToPrevious = useCallback(() => {
+        setCurrentIndex(prev => getPreviousIndex(prev));
+    }, [getPreviousIndex]);
+    
+    const goToNext = useCallback(() => {
+        setCurrentIndex(prev => getNextIndex(prev));
+    }, [getNextIndex]);
 
     // Auto-Play
     useEffect(() => {
-        if (autoPlayInterval > 0) {
+        if (autoPlayInterval > 0 && slidesLength > 0) {
             const interval = setInterval(() => {
                 goToNext();
             }, autoPlayInterval);
             return () => clearInterval(interval);
         }
-    }, [autoPlayInterval, goToNext]);
+    }, [autoPlayInterval, goToNext, slidesLength]);
 
-    const visibleSlides = [
-        slides[getPreviousIndex(currentIndex)],
-        slides[currentIndex],                  
-        slides[getNextIndex(currentIndex)],     
-    ];
+    if (slidesLength === 0) return null;
 
     const getSlideBaseClasses = (isCenter) => {
         const baseClasses = "opacity-100 shadow-lg transition-all duration-700 ease-in-out cursor-pointer flex justify-center items-center";
@@ -148,5 +151,4 @@ function CenteredCarousel({
     );
 }
 
-// Exportar solo el componente CenteredCarousel
 export default CenteredCarousel;
