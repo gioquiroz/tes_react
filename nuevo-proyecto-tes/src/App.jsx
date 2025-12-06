@@ -21,7 +21,7 @@ import { UserProvider } from "./components/UserContext.jsx";
 function App() {
     return (
         <UserProvider>
-            <div className="flex flex-col min-h-screen">
+            <div className="flex flex-col min-h-screen cursor-pointer">
                 <Router>
 
                     <NavBar />

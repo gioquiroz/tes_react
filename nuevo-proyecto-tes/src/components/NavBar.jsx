@@ -56,8 +56,8 @@ export default function Navbar() {
 
                     {/* Links Desktop */}
                     <div className="hidden md:flex md:space-x-8 md:items-center">
-                        <NavLink to="/">Inicio</NavLink>
-                        <NavLink to="/tienda">Tienda</NavLink>
+                        <NavLink to="/" className="cursor-pointer">Inicio</NavLink>
+                        <NavLink to="/tienda" className="cursor-pointer">Tienda</NavLink>
                     </div>
 
                     {/* Iconos */}
@@ -74,7 +74,7 @@ export default function Navbar() {
                         <div className="relative">
                             <button
                                 onClick={() => setUserMenu(!userMenu)}
-                                className="p-2 text-gray-600 hover:text-indigo-600 transition"
+                                className="p-2 text-gray-600 hover:text-indigo-600 transition cursor-pointer"
                             >
                                 <User className="w-5 h-5" />
                             </button>
@@ -91,7 +91,7 @@ export default function Navbar() {
                                     ) : (
                                         <button
                                             onClick={handleLogout}
-                                            className="w-full flex items-center gap-2 px-4 py-2 text-sm text-gray-700 hover:bg-red-50 hover:text-red-600"
+                                            className="w-full flex items-center gap-2 px-4 py-2 text-sm text-gray-700 hover:bg-red-50 hover:text-red-600 cursor-pointer"
                                         >
                                             <LogOut className="w-4 h-4" />
                                             Cerrar sesión
