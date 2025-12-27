@@ -67,20 +67,21 @@ function MainContent() {
             {/* Banner de Alianza */}
             <div className="w-screen relative left-1/2 -translate-x-1/2 -mx-2">
             <section
-  className="text-white py-24 my-24 shadow-2xl bg-cover bg-center bg-gray-800 bg-no-repeat"
-  style={{
-    backgroundImage: `url(${allianceBannerUrl})`,
-    backgroundPosition: `center ${bgPos}%`,
-    backgroundBlendMode: "multiply",
-  }}    
->
-<div className="max-w-7xl mx-auto px-4 text-center">
-      <h2 className="text-4xl font-extrabold mb-3">Alianza RH</h2>
-      <p className="text-gray-300 text-lg">
-        En colaboración con alianzas locales promovemos prácticas de reciclaje responsables.
-      </p>
-    </div>
-  </section>
+                className="text-white py-24 my-24 shadow-2xl bg-cover bg-center bg-gray-800"
+                style={{
+                    backgroundImage: `url(${allianceBannerUrl})`,
+                    backgroundPosition: `center ${-bgPos}px`,
+                    backgroundBlendMode: "multiply",
+                }}
+                >
+                <div className="max-w-7xl mx-auto px-4 text-center">
+                    <h2 className="text-4xl font-extrabold mb-3">Alianza RH</h2>
+                    <p className="text-gray-300 text-lg">
+                        En colaboración con alianzas locales promovemos prácticas de reciclaje responsables.
+                    </p>
+                </div>
+            </section>
+
 
             </div>
 
