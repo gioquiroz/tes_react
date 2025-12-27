@@ -112,7 +112,7 @@ export default function Navbar() {
                                 onClick={() =>
                                     setIsCategoryMenuOpen(!isCategoryMenuOpen)
                                 }
-                                className="p-2 text-gray-600 hover:text-indigo-600 transition"
+                                className="p-2 text-gray-600 hover:text-indigo-600 transition cursor-pointer"
                             >
                                 {isCategoryMenuOpen ? (
                                     <X className="w-6 h-6" />
