@@ -4,9 +4,21 @@ import RH from '../assets/OIP.jpg';
 import Cumple from '../assets/cumple.png';
 import SimpleCarousel from './CarrosuoselInfinite'
 import { NavLink } from "./NavbarElements"; 
+import { useEffect, useState } from "react";
+
 
 
 function MainContent() {
+    const [bgPos, setBgPos] = useState(50);
+    useEffect(() => {
+        const onScroll = () => {
+          setBgPos(50 + window.scrollY * 0.05);
+        };
+      
+        window.addEventListener("scroll", onScroll);
+        return () => window.removeEventListener("scroll", onScroll);
+      }, []);
+      
     // Definición de ítems de servicio (AHORA CON PROPIEDAD 'to')
     const serviceItems = [
         { icon: Printer, label: "Renta de Equipos", color: "text-indigo-600", to: "/renta" },
@@ -27,19 +39,18 @@ function MainContent() {
     return (
         <div className="max-w-7xl mx-auto p-4 pt-12"> 
             
-            {/* Sección de Servicios (CORREGIDA: Ahora usa NavLink) */}
+            {/* Sección de Servicios */}
             <section className="mt-8 mb-16">
                 <h1 className="text-3xl font-extrabold text-gray-800 text-center mb-10">Servicios</h1>
                 <div className="flex justify-center space-x-8 md:space-x-20">
                     {serviceItems.map((item) => {
                         const IconComponent = item.icon;
-                        // El componente siempre será NavLink porque definimos 'to' en todos
                         const ContainerComponent = NavLink; 
 
                         return (
                             <ContainerComponent 
                                 key={item.label} 
-                                to={item.to} // Usamos la ruta definida
+                                to={item.to} 
                                 className="text-center group p-4 rounded-xl transition transform hover:scale-105 cursor-pointer"
                             >
                                 <div className={`mx-auto w-16 h-16 flex items-center justify-center mb-3 rounded-full ${item.color} bg-indigo-50/70 group-hover:bg-indigo-100 transition`}>
@@ -51,24 +62,26 @@ function MainContent() {
                     })}
                 </div>
             </section>
+            
 
-            {/* Banner de Alianza (Sin cambios) */}
+            {/* Banner de Alianza */}
             <div className="w-screen relative left-1/2 -translate-x-1/2 -mx-2">
-                <section
-                    className="text-white py-16 my-16 shadow-2xl bg-gray-800 bg-cover bg-center"
-                    style={{
-                        backgroundImage: allianceBannerUrl ? `url(${allianceBannerUrl})` : 'none',
-                        backgroundBlendMode: allianceBannerUrl ? 'multiply' : 'none',
-                        backgroundColor: allianceBannerUrl ? '' : 'rgb(55 65 81)',
-                    }}
-                >
-                    <div className="max-w-7xl mx-auto px-4 text-center">
-                        <h2 className="text-4xl font-extrabold mb-3">Alianza RH</h2>
-                        <p className="text-gray-300 text-lg">
-                            En colaboración con alianzas locales promovemos prácticas de reciclaje responsables: recolección, reutilización y disposición adecuada de consumibles electrónicos y cartuchos, reduciendo el impacto ambiental y fomentando la economía circular en nuestras comunidades.
-                        </p>
-                    </div>
-                </section>
+            <section
+  className="text-white py-24 my-24 shadow-2xl bg-cover bg-center bg-gray-800 bg-no-repeat"
+  style={{
+    backgroundImage: `url(${allianceBannerUrl})`,
+    backgroundPosition: `center ${bgPos}%`,
+    backgroundBlendMode: "multiply",
+  }}    
+>
+<div className="max-w-7xl mx-auto px-4 text-center">
+      <h2 className="text-4xl font-extrabold mb-3">Alianza RH</h2>
+      <p className="text-gray-300 text-lg">
+        En colaboración con alianzas locales promovemos prácticas de reciclaje responsables.
+      </p>
+    </div>
+  </section>
+
             </div>
 
             {/* Sección de Problemas (Usa NavLink) */}

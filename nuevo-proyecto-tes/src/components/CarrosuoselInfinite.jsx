@@ -37,6 +37,9 @@ export default function SimpleCarousel() {
             className="carousel-item"
             style={{
               backgroundImage: `url(${src})`,
+              backgroundSize: "cover",
+              height: "100px",
+              width: "100px",
             }}
           />
         ))}
