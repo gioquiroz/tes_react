@@ -135,25 +135,25 @@ const grupos = [
   {
     name: "Equipo Tes", 
     members: [
+      { src: SlideImg7, name: "Luis Sepulveda", cargo: "Gerente General" },
+      { src: SlideImg6, name: "Sandra Franco", cargo: "Contadora" },
+      { src: SlideImg3, name: "Paula", cargo: "Comercial" }, 
+      { src: SlideImg4, name: "Luis Gonzaga", cargo: "Almacenista" },
       { src: SlideImg1, name: "Julio", cargo: "Mensajero" }, 
       { src: SlideImg2, name: "Diana", cargo: "Coordinador de Tecnicos" }, 
-      { src: SlideImg3, name: "Paula", cargo: "Comercial" }, 
-      { src: SlideImg7, name: "Luis Sepulveda", cargo: "Gerente General" },
-      { src: SlideImg4, name: "Luis Gonzaga", cargo: "Almacenista" },
       { src: SlideImg5, name: "Edward Velasquez", cargo: "Supervidor Tecnico" },
-      { src: SlideImg6, name: "Sandra Franco", cargo: "Contadora" },
     ],
   },
   {
     name: "Equipo Tes", 
     members: [
+      { src: SlideImg6, name: "Sandra Franco", cargo: "Contadora" },
+      { src: SlideImg7, name: "Luis Sepulveda", cargo: "Gerente General" },
       { src: SlideImg1, name: "Julio", cargo: "Mensajero" }, 
       { src: SlideImg2, name: "Diana", cargo: "Coordinador de Tecnicos" }, 
       { src: SlideImg3, name: "Paula", cargo: "Comercial" }, 
-      { src: SlideImg7, name: "Luis Sepulveda", cargo: "Gerente General" },
       { src: SlideImg4, name: "Luis Gonzaga", cargo: "Almacenista" },
       { src: SlideImg5, name: "Edward Velasquez", cargo: "Supervidor Tecnico" },
-      { src: SlideImg6, name: "Sandra Franco", cargo: "Contadora" },
     ],
   },
 ];
