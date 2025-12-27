@@ -1,7 +1,5 @@
-// --- src/components/ProductCard.jsx ---
 import React from 'react';
 
-// Formatea el precio a moneda local (ajusta si es necesario)
 const formatPrice = (price) => {
     if (typeof price !== 'number') return 'Precio N/D'; 
     return price.toLocaleString('es-CO', {
@@ -12,7 +10,6 @@ const formatPrice = (price) => {
     });
 };
 
-// Acepta onViewDetails como prop
 function ProductCard({ product, onViewDetails }) { 
     return (
         <div className="bg-white rounded-xl shadow-lg hover:shadow-2xl transition-all duration-300 overflow-hidden border border-gray-200">
