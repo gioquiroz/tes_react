@@ -2,6 +2,7 @@ import React from "react";
 import NavBar from "./components/NavBar.jsx";
 import Footer from "./components/Footer.jsx";
 import ScrollToTop from "./components/ScrollToTop.jsx";
+import WhatsAppFloating from "./components/WhatsAppFloating";
 
 
 import {
@@ -41,6 +42,7 @@ function App() {
                     <Footer />
 
                 </Router>
+                <WhatsAppFloating />
             </div>
         </UserProvider>
     );

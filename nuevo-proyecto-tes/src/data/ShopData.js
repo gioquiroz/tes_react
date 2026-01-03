@@ -1,32 +1,38 @@
-
 const shopDataConfig = {
-    "Impresoras": {
-        title: "Impresoras",
-        apiEndpoint: 'https://jsonplaceholder.typicode.com/posts', 
-        filters: {
-            "Tipo": ['Laser', 'Inyección', 'Térmica'],
-            "Color": ['Blanco y negro', 'Color'],
-            "Marcas": ['Ricoh', 'HP', 'Epson'],
-        },
+    Impresoras: {
+      title: "Impresoras",
+      categorySlug: "impresoras",
+      filters: {
+        Estado: ["disponible", "alquilado", "en_mantenimiento"],
+        Disponibilidad: ["available", "not_available"],
+        Stock: ["in_stock", "out_of_stock"],
+      },
     },
-    "Fotocopiadoras": {
-        title: "Fotocopiadoras",
-        apiEndpoint: 'https://jsonplaceholder.typicode.com/posts',
-        filters: {
-            "Velocidad (PPM)": ['20-30', '46+'],
-            "Funcionalidad": ['Multifuncional', 'Solo Copia'],
-            "Marcas": ['Ricoh', 'Konica Minolta'],
-        },
+  
+    Multifuncionales: {
+      title: "Multifuncionales",
+      categorySlug: "multifuncionales",
+      filters: {
+        Estado: ["disponible", "alquilado", "en_mantenimiento"],
+        Disponibilidad: ["available", "not_available"],
+        Stock: ["in_stock", "out_of_stock"],
+      },
     },
-    "Escaneres": {
-        title: "Escáneres",
-        apiEndpoint: 'https://jsonplaceholder.typicode.com/posts',
-        filters: {
-            "Conectividad": ['USB', 'Red', 'Wi-Fi'],
-            "ADF": ['Sí', 'No'],
-            "Marcas": ['Epson', 'Canon'],
-        },
-    }
-};
-
-export default shopDataConfig;
+  
+    Escaneres: {
+      title: "Escáneres",
+      categorySlug: "escaneres",
+      filters: {
+        Estado: ["disponible", "alquilado", "en_mantenimiento"],
+        Disponibilidad: ["available", "not_available"],
+        Stock: ["in_stock", "out_of_stock"],
+      },
+    },
+  };
+  
+  export const API_CONFIG = {
+    baseURL: "https://inventory-app-main-qvihcj.laravel.cloud/api/v1",
+  };
+  
+  export default shopDataConfig;
+  
